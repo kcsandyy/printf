@@ -25,9 +25,11 @@ int _printf(const char *format, ...)
 			{
 				case 'c':
 					count = _putchar(va_arg(args, int));
+					++format;
 					break;
 				case 's':
 					count = _puts(va_arg(args, char *));
+					++format;
 					break;
 				case 'd':
 				case 'i':
@@ -38,6 +40,7 @@ int _printf(const char *format, ...)
 						n = -n;
 					}
 					count += print_number(n);
+					++format;
 					break;
 				case '%':
 					count = _putchar(37);
